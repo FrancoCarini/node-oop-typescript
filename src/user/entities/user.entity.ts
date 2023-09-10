@@ -1,10 +1,8 @@
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { BaseEntity } from "../../config/base.entity";
 
-@Entity({ name: "users" })
-export class UserEntity {
-  @PrimaryGeneratedColumn("uuid")
-  id!: string
-
+@Entity({ name: "user" })
+export class UserEntity extends BaseEntity{
   @Column()
   name!: string;
 
@@ -25,16 +23,4 @@ export class UserEntity {
 
   @Column()
   province!: string;
-
-  @CreateDateColumn({
-    name: "created_at",
-    type: "timestamp",
-  })
-  createdAt!: Date
-
-  @UpdateDateColumn({
-    name: "updated_at",
-    type: "timestamp",
-  })
-  updatedAt!: Date;
 }
